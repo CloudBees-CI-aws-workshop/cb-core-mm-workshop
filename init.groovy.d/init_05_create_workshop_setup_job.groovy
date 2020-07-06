@@ -70,7 +70,7 @@ def configXml = """
         <hudson.model.StringParameterDefinition>
           <name>k8sNamespace</name>
           <description>Do not change the default value unless asked to do so by your instructor.</description>
-          <defaultValue>cloudbees-core</defaultValue>
+          <defaultValue>cloudbees-ci</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
@@ -118,11 +118,11 @@ spec:
             curl --silent -X DELETE -H 'Authorization: token \$githubPat' https://api.github.com/repos/\${githubOrg}/microblog-frontend
             curl --silent -X DELETE -H 'Authorization: token \$githubPat' https://api.github.com/repos/\${githubOrg}/microblog-backend
             sleep 1
-            curl --silent -H &quot;Authorization: token \$githubPAT&quot; --data &apos;{&quot;organization&quot;:&quot;\${githubOrg}&quot;}&apos; https://api.github.com/repos/cloudbees-days/pipeline-library/forks
-            curl --silent -H &quot;Authorization: token \$githubPAT&quot; --data &apos;{&quot;organization&quot;:&quot;\${githubOrg}&quot;}&apos; https://api.github.com/repos/cloudbees-days/pipeline-template-catalog/forks
-            curl --silent -H &quot;Authorization: token \$githubPAT&quot; --data &apos;{&quot;organization&quot;:&quot;\${githubOrg}&quot;}&apos; https://api.github.com/repos/cloudbees-days/core-config-bundle/forks
-            curl --silent -H &quot;Authorization: token \$githubPAT&quot; --data &apos;{&quot;organization&quot;:&quot;\${githubOrg}&quot;}&apos; https://api.github.com/repos/cloudbees-days/microblog-frontend/forks
-            curl --silent -H &quot;Authorization: token \$githubPAT&quot; --data &apos;{&quot;organization&quot;:&quot;\${githubOrg}&quot;}&apos; https://api.github.com/repos/cloudbees-days/microblog-backend/forks
+            curl --silent -H &quot;Authorization: token \$githubPAT&quot; --data &apos;{&quot;organization&quot;:&quot;\${githubOrg}&quot;}&apos; https://api.github.com/repos/CloudBees-CI-aws-workshop/pipeline-library/forks
+            curl --silent -H &quot;Authorization: token \$githubPAT&quot; --data &apos;{&quot;organization&quot;:&quot;\${githubOrg}&quot;}&apos; https://api.github.com/repos/CloudBees-CI-aws-workshop/pipeline-template-catalog/forks
+            curl --silent -H &quot;Authorization: token \$githubPAT&quot; --data &apos;{&quot;organization&quot;:&quot;\${githubOrg}&quot;}&apos; https://api.github.com/repos/CloudBees-CI-aws-workshop/core-config-bundle/forks
+            curl --silent -H &quot;Authorization: token \$githubPAT&quot; --data &apos;{&quot;organization&quot;:&quot;\${githubOrg}&quot;}&apos; https://api.github.com/repos/CloudBees-CI-aws-workshop/microblog-frontend/forks
+            curl --silent -H &quot;Authorization: token \$githubPAT&quot; --data &apos;{&quot;organization&quot;:&quot;\${githubOrg}&quot;}&apos; https://api.github.com/repos/CloudBees-CI-aws-workshop/microblog-backend/forks
             sleep 3
             curl --silent -H &quot;Authorization: token \$githubPAT&quot; --data &apos;{&quot;title&quot;:&quot;Add event trigger&quot;,&quot;head&quot;:&quot;vuejs-event-trigger&quot;,&quot;base&quot;:&quot;master&quot;}&apos; https://api.github.com/repos/\$githubOrg/pipeline-template-catalog/pulls
             curl --silent -H &quot;Authorization: token \$githubPAT&quot; --data &apos;{&quot;title&quot;:&quot;GitOps lab updates&quot;,&quot;head&quot;:&quot;gitops-lab&quot;,&quot;base&quot;:&quot;master&quot;}&apos; https://api.github.com/repos/\$githubOrg/core-config-bundle/pulls
@@ -173,7 +173,7 @@ spec:
         container(&apos;utils&apos;) {
           //download CLI client from current master
           sh &quot;curl -O http://teams-\${masterName}/teams-\${masterName}/jnlpJars/jenkins-cli.jar&quot;
-          sh &quot;curl -O https://raw.githubusercontent.com/cloudbees-days/cb-core-oc-workshop/master/stopAndStartMaster.groovy&quot;
+          sh &quot;curl -O https://raw.githubusercontent.com/CloudBees-CI-aws-workshop/cb-core-oc-workshop/master/stopAndStartMaster.groovy&quot;
           sh &quot;sed -i &apos;s#REPLACE_MASTER_NAME#\${masterName}#&apos; stopAndStartMaster.groovy&quot;
           withCredentials([usernamePassword(credentialsId: &apos;cli-username-token&apos;, usernameVariable: &apos;USERNAME&apos;, passwordVariable: &apos;PASSWORD&apos;)]) {
             sh &quot;&quot;&quot;
