@@ -1,3 +1,4 @@
 pipeline-event-step:1.7
 managed-master-hibernation:0.3-alpha
-configuration-as-code:1.4
+configuration-as-code:1.35
+script-security:1.71

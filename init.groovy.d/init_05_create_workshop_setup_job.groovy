@@ -70,7 +70,7 @@ def configXml = """
         <hudson.model.StringParameterDefinition>
           <name>k8sNamespace</name>
           <description>Do not change the default value unless asked to do so by your instructor.</description>
-          <defaultValue>cloudbees-ci</defaultValue>
+          <defaultValue>cloudbees-core</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
